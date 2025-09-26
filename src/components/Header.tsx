@@ -1,5 +1,11 @@
-import { MapPin, User, Bell, Menu, ArrowLeft } from "lucide-react";
+import { MapPin, User, Bell, Menu, ArrowLeft, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface HeaderProps {
   currentSection?: string;
@@ -37,33 +43,42 @@ export function Header({ currentSection, onSectionChange, onBack }: HeaderProps)
           </div>
 
           {/* Section Navigation or Profile Icons */}
-          {onSectionChange && currentSection ? (
-            <div className="hidden md:flex items-center gap-2 overflow-x-auto">
-              {sections.map((section) => (
-                <Button
-                  key={section}
-                  variant={currentSection === section ? "default" : "glass"}
-                  size="sm"
-                  onClick={() => onSectionChange(section)}
-                  className="whitespace-nowrap"
-                >
-                  {section}
-                </Button>
-              ))}
-            </div>
-          ) : (
-            <div className="flex items-center gap-3">
-              <Button variant="glass" size="icon">
-                <Bell className="w-4 h-4" />
-              </Button>
-              <Button variant="glass" size="icon">
-                <User className="w-4 h-4" />
-              </Button>
-              <Button variant="glass" size="icon" className="md:hidden">
-                <Menu className="w-4 h-4" />
-              </Button>
-            </div>
-          )}
+          <div className="flex items-center gap-3">
+            {onSectionChange && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="glass" className="flex items-center gap-2">
+                    Services
+                    <ChevronDown className="w-4 h-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 bg-card border-border">
+                  {sections.map((section) => (
+                    <DropdownMenuItem
+                      key={section}
+                      onClick={() => onSectionChange(section)}
+                      className={`cursor-pointer transition-colors ${
+                        currentSection === section
+                          ? "bg-primary text-primary-foreground"
+                          : "hover:bg-accent hover:text-accent-foreground"
+                      }`}
+                    >
+                      {section}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
+            <Button variant="glass" size="icon">
+              <Bell className="w-4 h-4" />
+            </Button>
+            <Button variant="glass" size="icon">
+              <User className="w-4 h-4" />
+            </Button>
+            <Button variant="glass" size="icon" className="md:hidden">
+              <Menu className="w-4 h-4" />
+            </Button>
+          </div>
         </div>
       </div>
     </header>
