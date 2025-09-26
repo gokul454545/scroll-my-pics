@@ -1,25 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Home, Activity, Bell, MessageCircle } from "lucide-react";
+import { Cake, PartyPopper } from "lucide-react";
 
 const categories = [
   {
-    icon: Home,
-    label: "Home",
-    active: true
-  },
-  {
-    icon: Activity,
-    label: "Status",
+    icon: Cake,
+    label: "Wedding",
     active: false
   },
   {
-    icon: Bell,
-    label: "Updates",
+    icon: PartyPopper,
+    label: "Party",
     active: false
   },
   {
-    icon: MessageCircle,
-    label: "Chats",
+    icon: Cake,
+    label: "Wedding",
+    active: false
+  },
+  {
+    icon: PartyPopper,
+    label: "Party",
     active: false
   }
 ];
