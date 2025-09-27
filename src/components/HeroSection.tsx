@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { Search, ChevronDown } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import weddingImage from "@/assets/wedding-anniversary.jpg";
 import birthdayImage from "@/assets/birthday-party.jpg";
@@ -86,11 +87,18 @@ export function HeroSection() {
             </p>
           </div>
 
-          {/* Location Display */}
-          <div className="space-y-2 animate-fade-in">
-            <p className="text-base sm:text-lg opacity-90 font-medium">
+          {/* Location and Search */}
+          <div className="space-y-4 animate-fade-in max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg opacity-90 font-medium text-center">
               📍 Chennai, Ruthland Gate 5th Street
             </p>
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <Input
+                placeholder="Search for events, venues, services..."
+                className="pl-12 pr-4 py-3 text-base bg-white/95 backdrop-blur-sm border-0 rounded-full shadow-elevated text-foreground"
+              />
+            </div>
           </div>
 
           {/* Current Image Context */}
