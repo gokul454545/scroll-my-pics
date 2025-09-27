@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Search, ChevronDown } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import weddingImage from "@/assets/wedding-anniversary.jpg";
 import birthdayImage from "@/assets/birthday-party.jpg";
@@ -87,6 +86,13 @@ export function HeroSection() {
             </p>
           </div>
 
+          {/* Location Display */}
+          <div className="space-y-2 animate-fade-in">
+            <p className="text-base sm:text-lg opacity-90 font-medium">
+              📍 Chennai, Ruthland Gate 5th Street
+            </p>
+          </div>
+
           {/* Current Image Context */}
           <div className="space-y-2 animate-fade-in">
             <h3 className="text-xl sm:text-2xl font-semibold">
@@ -95,32 +101,6 @@ export function HeroSection() {
             <p className="text-base sm:text-lg opacity-80">
               {heroImages[currentImageIndex].subtitle}
             </p>
-          </div>
-
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-            <Input
-              placeholder="Search for events, venues, services..."
-              className="pl-12 pr-4 py-6 text-lg bg-white/95 backdrop-blur-sm border-0 rounded-full shadow-elevated text-foreground"
-            />
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary-hover text-primary-foreground px-8 py-4 text-lg rounded-full shadow-primary font-semibold transition-all duration-300 hover:scale-105"
-            >
-              Plan My Function
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-white/50 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-full backdrop-blur-sm font-semibold transition-all duration-300"
-            >
-              Browse Services
-            </Button>
           </div>
         </div>
 
