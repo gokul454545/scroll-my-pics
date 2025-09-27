@@ -1,5 +1,17 @@
-import { MapPin, User, Bell, Menu, ArrowLeft, ChevronDown } from "lucide-react";
+import {
+  MapPin,
+  User,
+  Bell,
+  Menu,
+  ArrowLeft,
+  ChevronDown,
+  Search,
+  MessageCircle,
+} from "lucide-react";
+
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,8 +27,17 @@ interface HeaderProps {
 
 export function Header({ currentSection, onSectionChange, onBack }: HeaderProps) {
   const sections = [
-    "Details", "Photography", "Decoration", "Venues", "Budget", 
-    "Food & Catering", "Services", "Custom Orders", "Booking", "Payment", "Messages"
+    "Details",
+    "Photography",
+    "Decoration",
+    "Venues",
+    "Budget",
+    "Food & Catering",
+    "Services",
+    "Custom Orders",
+    "Booking",
+    "Payment",
+    "Messages",
   ];
 
   return (
@@ -37,9 +58,34 @@ export function Header({ currentSection, onSectionChange, onBack }: HeaderProps)
               <div className="flex items-center gap-2 bg-white/10 rounded-lg px-3 py-1">
                 <MapPin className="w-4 h-4" />
                 <span className="text-sm">Chennai</span>
-                <span className="text-xs opacity-75">9, Ruthland gate 5th street,...</span>
+                <span className="text-xs opacity-75">
+                  9, Ruthland gate 5th street,...
+                </span>
               </div>
             )}
+          </div>
+
+          {/* Search Bar */}
+          <div className="relative hidden md:block">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <Input
+              placeholder="Search for events, venues, services..."
+              className="pl-12 pr-4 py-3 text-base bg-white/95 backdrop-blur-sm border-0 rounded-full shadow-elevated text-foreground"
+            />
+          </div>
+
+          {/* Extra Buttons */}
+          <div className="flex items-center space-x-3">
+            {/* Chat Button */}
+            <Button variant="ghost" size="sm" className="hidden sm:flex">
+              <MessageCircle className="h-4 w-4 mr-2" />
+              Need Help?
+            </Button>
+
+            {/* Mobile Menu */}
+            <Button variant="ghost" size="sm" className="md:hidden">
+              <Menu className="h-5 w-5" />
+            </Button>
           </div>
 
           {/* Section Navigation or Profile Icons */}
@@ -52,7 +98,10 @@ export function Header({ currentSection, onSectionChange, onBack }: HeaderProps)
                     <ChevronDown className="w-4 h-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56 bg-card border-border">
+                <DropdownMenuContent
+                  align="end"
+                  className="w-56 bg-card border-border"
+                >
                   {sections.map((section) => (
                     <DropdownMenuItem
                       key={section}
@@ -77,6 +126,14 @@ export function Header({ currentSection, onSectionChange, onBack }: HeaderProps)
             </Button>
             <Button variant="glass" size="icon" className="md:hidden">
               <Menu className="w-4 h-4" />
+            </Button>
+
+            {/* Login Button styled gold manually */}
+            <Button
+              size="sm"
+              className="hidden sm:flex bg-yellow-500 text-white hover:bg-yellow-600"
+            >
+              Login
             </Button>
           </div>
         </div>

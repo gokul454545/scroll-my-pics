@@ -89,16 +89,10 @@ export function HeroSection() {
 
           {/* Location and Search */}
           <div className="space-y-4 animate-fade-in max-w-2xl mx-auto">
-            <p className="text-base sm:text-lg opacity-90 font-medium text-center">
+            {/* <p className="text-base sm:text-lg opacity-90 font-medium text-center">
               📍 Chennai, Ruthland Gate 5th Street
-            </p>
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <Input
-                placeholder="Search for events, venues, services..."
-                className="pl-12 pr-4 py-3 text-base bg-white/95 backdrop-blur-sm border-0 rounded-full shadow-elevated text-foreground"
-              />
-            </div>
+            </p> */}
+            
           </div>
 
           {/* Current Image Context */}
