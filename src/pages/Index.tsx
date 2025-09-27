@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
-import { HeroSection } from "@/components/HeroSection";
+import { SearchSection } from "@/components/SearchSection";
 import { EventCarousel } from "@/components/EventCarousel";
 import { PlanningOptions } from "@/components/PlanningOptions";
 import { FeatureSection } from "@/components/FeatureSection";
@@ -23,7 +23,7 @@ const Index = () => {
     if (!showDetailedView) {
       return (
         <>
-          <HeroSection />
+          <SearchSection />
           <EventCarousel />
           <PlanningOptions />
           <FeatureSection />
@@ -58,7 +58,7 @@ const Index = () => {
       default:
         return (
           <>
-            <HeroSection />
+            <SearchSection />
             <EventCarousel />
             <PlanningOptions />
             <FeatureSection />
