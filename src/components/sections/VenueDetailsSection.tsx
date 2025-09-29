@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MapPin, Users, Calendar, Star, Wifi, Car, Camera, Music } from "lucide-react";
+import grandBallroomImg from "@/assets/venue-grand-ballroom.jpg";
 
 const venueDetails = {
   name: "Grand Ballroom Hotel",
@@ -10,7 +11,7 @@ const venueDetails = {
   location: "Downtown, New York",
   capacity: "50-500 guests",
   price: "$2,500 - $8,000",
-  image: "/api/placeholder/400/300",
+  image: grandBallroomImg,
   facilities: [
     { icon: Wifi, label: "Free WiFi" },
     { icon: Car, label: "Parking" },
@@ -27,6 +28,7 @@ export function VenueDetailsSection() {
       {/* Venue Header */}
       <Card className="overflow-hidden">
         <div className="h-64 bg-gradient-secondary relative">
+          <img src={venueDetails.image} alt={venueDetails.name} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="absolute bottom-4 left-4 text-white">
             <div className="flex items-center space-x-2 mb-2">

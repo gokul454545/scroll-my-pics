@@ -2,6 +2,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Palette, Sparkles, Heart, Crown, Flower2, Star } from "lucide-react";
+import romanticEleganceImg from "@/assets/decoration-romantic-elegance.jpg";
+import royalLuxuryImg from "@/assets/decoration-royal-luxury.jpg";
+import gardenParadiseImg from "@/assets/decoration-garden-paradise.jpg";
+import modernMinimalistImg from "@/assets/decoration-modern-minimalist.jpg";
 
 const decorationThemes = [
   {
@@ -12,7 +16,7 @@ const decorationThemes = [
     description: "Soft pastels, candles, and floral arrangements",
     colors: ["Rose Gold", "Blush Pink", "Ivory", "Champagne"],
     includes: ["Centerpieces", "Lighting", "Linens", "Floral Arrangements"],
-    image: "/api/placeholder/300/200"
+    image: romanticEleganceImg
   },
   {
     id: 2, 
@@ -22,7 +26,7 @@ const decorationThemes = [
     description: "Rich colors, gold accents, and premium materials",
     colors: ["Deep Purple", "Gold", "Burgundy", "Navy"],
     includes: ["Crystal Chandeliers", "Velvet Draping", "Gold Chargers", "Premium Florals"],
-    image: "/api/placeholder/300/200"
+    image: royalLuxuryImg
   },
   {
     id: 3,
@@ -32,7 +36,7 @@ const decorationThemes = [
     description: "Natural greenery, botanical elements, fresh flowers",
     colors: ["Sage Green", "White", "Natural Wood", "Coral"],
     includes: ["Living Walls", "Hanging Gardens", "Rustic Elements", "Fresh Bouquets"],
-    image: "/api/placeholder/300/200"
+    image: gardenParadiseImg
   },
   {
     id: 4,
@@ -42,7 +46,7 @@ const decorationThemes = [
     description: "Clean lines, geometric shapes, contemporary style",
     colors: ["Black", "White", "Silver", "Accent Color"],
     includes: ["LED Lighting", "Geometric Centerpieces", "Modern Furniture", "Art Installations"],
-    image: "/api/placeholder/300/200"
+    image: modernMinimalistImg
   }
 ];
 
@@ -85,6 +89,7 @@ export function DecorationSection() {
               <div className={`grid md:grid-cols-2 ${index % 2 === 1 ? 'md:grid-cols-2' : ''}`}>
                 {/* Image */}
                 <div className={`h-64 bg-gradient-secondary relative ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+                  <img src={theme.image} alt={theme.name} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-black/10"></div>
                   <div className="absolute top-4 left-4">
                     <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">

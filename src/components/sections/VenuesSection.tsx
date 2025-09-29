@@ -4,6 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { MapPin, Users, Star, Search, Filter, Navigation } from "lucide-react";
 import { useState } from "react";
+import grandBallroomImg from "@/assets/venue-grand-ballroom.jpg";
+import riversideGardensImg from "@/assets/venue-riverside-gardens.jpg";
+import metropolitanLoftImg from "@/assets/venue-metropolitan-loft.jpg";
+import historicMansionImg from "@/assets/venue-historic-mansion.jpg";
 
 const venues = [
   {
@@ -16,7 +20,7 @@ const venues = [
     capacity: "100-500",
     price: "$2,500",
     type: "Hotel",
-    image: "/api/placeholder/300/200",
+    image: grandBallroomImg,
     features: ["Parking", "WiFi", "Catering", "A/V Equipment"]
   },
   {
@@ -29,7 +33,7 @@ const venues = [
     capacity: "50-300",
     price: "$1,800",
     type: "Garden",
-    image: "/api/placeholder/300/200",
+    image: riversideGardensImg,
     features: ["Outdoor", "Garden", "Photography", "Bridal Suite"]
   },
   {
@@ -42,7 +46,7 @@ const venues = [
     capacity: "80-200",
     price: "$3,200",
     type: "Loft",
-    image: "/api/placeholder/300/200",
+    image: metropolitanLoftImg,
     features: ["City Views", "Modern", "Rooftop", "Downtown"]
   },
   {
@@ -55,7 +59,7 @@ const venues = [
     capacity: "150-400",
     price: "$4,500",
     type: "Mansion", 
-    image: "/api/placeholder/300/200",
+    image: historicMansionImg,
     features: ["Historic", "Elegant", "Gardens", "Ballroom"]
   }
 ];
@@ -157,6 +161,7 @@ export function VenuesSection() {
                 <div className="grid md:grid-cols-3 gap-0">
                   {/* Venue Image */}
                   <div className="h-48 md:h-auto bg-gradient-secondary relative">
+                    <img src={venue.image} alt={venue.name} className="w-full h-full object-cover" />
                     <div className="absolute top-3 left-3">
                       <Badge variant="secondary">{venue.type}</Badge>
                     </div>

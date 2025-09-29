@@ -2,6 +2,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Camera, Star, Clock, Users, Award } from "lucide-react";
+import photographerSarah from "@/assets/photographer-sarah.jpg";
+import photographerAlex from "@/assets/photographer-alex.jpg";
+import photographerMaria from "@/assets/photographer-maria.jpg";
+import portfolioImg1 from "@/assets/photography-portfolio-1.jpg";
+import portfolioImg2 from "@/assets/photography-portfolio-2.jpg";
+import portfolioImg3 from "@/assets/photography-portfolio-3.jpg";
 
 const photographers = [
   {
@@ -11,7 +17,7 @@ const photographers = [
     rating: 4.9,
     reviews: 127,
     price: "$800 - $2,500",
-    image: "/api/placeholder/300/200",
+    image: photographerSarah,
     specialties: ["Weddings", "Portraits", "Events"],
     experience: "8 years",
     packages: ["Basic (4hrs)", "Standard (8hrs)", "Premium (12hrs)"]
@@ -23,7 +29,7 @@ const photographers = [
     rating: 4.8,
     reviews: 98,
     price: "$600 - $2,000",
-    image: "/api/placeholder/300/200", 
+    image: photographerAlex, 
     specialties: ["Corporate", "Social", "Lifestyle"],
     experience: "6 years",
     packages: ["Essential (3hrs)", "Complete (6hrs)", "Full Day (10hrs)"]
@@ -35,7 +41,7 @@ const photographers = [
     rating: 5.0,
     reviews: 89,
     price: "$900 - $3,000",
-    image: "/api/placeholder/300/200",
+    image: photographerMaria,
     specialties: ["Fine Art", "Fashion", "Editorial"],
     experience: "12 years", 
     packages: ["Studio (2hrs)", "Location (4hrs)", "Exclusive (8hrs)"]
@@ -43,8 +49,7 @@ const photographers = [
 ];
 
 const portfolioImages = [
-  "/api/placeholder/200/300", "/api/placeholder/200/200", "/api/placeholder/200/250",
-  "/api/placeholder/200/280", "/api/placeholder/200/220", "/api/placeholder/200/300"
+  portfolioImg1, portfolioImg2, portfolioImg3, portfolioImg1, portfolioImg2, portfolioImg3
 ];
 
 export function PhotographySection() {
@@ -69,7 +74,7 @@ export function PhotographySection() {
                 key={index}
                 className="aspect-square bg-gradient-secondary rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform"
               >
-                <div className="w-full h-full bg-muted"></div>
+                <img src={image} alt={`Portfolio ${index + 1}`} className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
@@ -83,6 +88,7 @@ export function PhotographySection() {
             <CardContent className="p-0">
               {/* Photographer Image */}
               <div className="h-48 bg-gradient-secondary relative overflow-hidden">
+                <img src={photographer.image} alt={photographer.name} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
                   <div className="flex items-center space-x-2 mb-1">

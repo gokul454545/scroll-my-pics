@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Bot, UserCheck, Sparkles, Settings } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export function PlanningOptions() {
+  const navigate = useNavigate();
+
   return (
     <section className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,7 +22,7 @@ export function PlanningOptions() {
               </div>
               <h2 className="text-2xl font-bold mb-4">AI</h2>
               {/* <p className="text-muted-foreground mb-6">Let our intelligent AI plan your perfect event with personalized recommendations and automated coordination.</p> */}
-              <Button variant="hero" size="lg" className="w-full">
+              <Button variant="hero" size="lg" className="w-full" onClick={() => navigate('/chat')}>
                 <Sparkles className="w-3 h-3 mr-2" />
                 Start with AI
               </Button>

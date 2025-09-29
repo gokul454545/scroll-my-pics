@@ -2,6 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Utensils, Star, Clock, Users, ChefHat, Leaf, Award } from "lucide-react";
+import elegantAffairsImg from "@/assets/catering-elegant-affairs.jpg";
+import gardenFreshImg from "@/assets/catering-garden-fresh.jpg";
+import globalFlavorsImg from "@/assets/catering-global-flavors.jpg";
 
 const cateringOptions = [
   {
@@ -11,7 +14,7 @@ const cateringOptions = [
     rating: 4.9,
     reviews: 156,
     priceRange: "$45-85 per person",
-    image: "/api/placeholder/300/200",
+    image: elegantAffairsImg,
     cuisines: ["Continental", "Mediterranean", "Asian Fusion"],
     services: ["Full Service", "Setup & Cleanup", "Professional Staff"],
     minGuests: 50,
@@ -24,7 +27,7 @@ const cateringOptions = [
     rating: 4.8,
     reviews: 203,
     priceRange: "$35-65 per person", 
-    image: "/api/placeholder/300/200",
+    image: gardenFreshImg,
     cuisines: ["American", "Vegetarian", "Vegan"],
     services: ["Sustainable Sourcing", "Dietary Accommodations", "Custom Menus"],
     minGuests: 25,
@@ -37,7 +40,7 @@ const cateringOptions = [
     rating: 4.7,
     reviews: 189,
     priceRange: "$30-70 per person",
-    image: "/api/placeholder/300/200", 
+    image: globalFlavorsImg, 
     cuisines: ["Italian", "Indian", "Mexican", "Thai"],
     services: ["Live Cooking Stations", "Cultural Presentations", "Themed Setups"],
     minGuests: 30,
@@ -111,6 +114,7 @@ export function FoodCateringSection() {
               <div className="grid md:grid-cols-3 gap-0">
                 {/* Caterer Image */}
                 <div className="h-48 bg-gradient-secondary relative">
+                  <img src={caterer.image} alt={caterer.name} className="w-full h-full object-cover" />
                   <div className="absolute top-3 left-3 space-y-1">
                     {caterer.badges.map((badge, index) => (
                       <Badge key={index} variant="secondary" className="block w-fit">
