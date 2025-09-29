@@ -7,7 +7,10 @@ import {
   ChevronDown,
   Search,
   MessageCircle,
+  Calendar,
+  List,
 } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,6 +29,8 @@ interface HeaderProps {
 }
 
 export function Header({ currentSection, onSectionChange, onBack }: HeaderProps) {
+  const navigate = useNavigate();
+  
   const sections = [
     "Details",
     "Photography",
@@ -77,9 +82,21 @@ export function Header({ currentSection, onSectionChange, onBack }: HeaderProps)
           {/* Extra Buttons */}
           <div className="flex items-center space-x-3">
             {/* Chat Button */}
-            <Button variant="ghost" size="sm" className="hidden sm:flex">
+            <Button variant="ghost" size="sm" className="hidden sm:flex" onClick={() => navigate('/chat')}>
               <MessageCircle className="h-4 w-4 mr-2" />
               Need Help?
+            </Button>
+
+            {/* Services Link */}
+            <Button variant="ghost" size="sm" className="hidden sm:flex" onClick={() => navigate('/services')}>
+              <List className="h-4 w-4 mr-2" />
+              Services
+            </Button>
+
+            {/* My Bookings */}
+            <Button variant="ghost" size="sm" className="hidden sm:flex" onClick={() => navigate('/bookings')}>
+              <Calendar className="h-4 w-4 mr-2" />
+              Bookings
             </Button>
 
             {/* Mobile Menu */}
