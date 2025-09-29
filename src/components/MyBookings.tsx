@@ -12,8 +12,17 @@ import {
   Download,
   Edit,
   Eye,
-  AlertCircle
+  AlertCircle,
+  ArrowLeft
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import weddingImg from "@/assets/wedding-anniversary.jpg";
+import birthdayImg from "@/assets/birthday-party.jpg";
+import corporateImg from "@/assets/corporate-event.jpg";
+import royalDecoratorsImg from "@/assets/royal-decorators.jpg";
+import spiceGardenImg from "@/assets/spice-garden-catering.jpg";
+import crystalVisionImg from "@/assets/crystal-vision-photography.jpg";
+import partyPlannersImg from "@/assets/party-planners-pro.jpg";
 
 const bookings = [
   {
@@ -26,26 +35,26 @@ const bookings = [
       {
         name: "Royal Palace Decorators",
         type: "Decoration",
-        image: "/api/placeholder/60/60",
+        image: royalDecoratorsImg,
         status: "confirmed"
       },
       {
         name: "Spice Garden Catering",
         type: "Catering",
-        image: "/api/placeholder/60/60",
+        image: spiceGardenImg,
         status: "confirmed"
       },
       {
         name: "Crystal Vision Photography",
         type: "Photography",
-        image: "/api/placeholder/60/60",
+        image: crystalVisionImg,
         status: "pending"
       }
     ],
     totalCost: 4500,
     status: "confirmed",
     guests: 250,
-    thumbnail: "/api/placeholder/80/80"
+    thumbnail: weddingImg
   },
   {
     id: 2,
@@ -57,7 +66,7 @@ const bookings = [
       {
         name: "Party Planners Pro",
         type: "Event Planning",
-        image: "/api/placeholder/60/60",
+        image: partyPlannersImg,
         status: "confirmed"
       },
       {
@@ -70,7 +79,7 @@ const bookings = [
     totalCost: 1200,
     status: "pending",
     guests: 50,
-    thumbnail: "/api/placeholder/80/80"
+    thumbnail: birthdayImg
   },
   {
     id: 3,
@@ -95,7 +104,7 @@ const bookings = [
     totalCost: 2800,
     status: "completed",
     guests: 150,
-    thumbnail: "/api/placeholder/80/80"
+    thumbnail: corporateImg
   }
 ];
 
@@ -126,13 +135,20 @@ const getStatusIcon = (status: string) => {
 };
 
 export function MyBookings() {
+  const navigate = useNavigate();
+
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold">My Bookings</h1>
-          <p className="text-muted-foreground">Manage your event bookings and track progress</p>
+        <div className="flex items-center gap-4">
+          <Button variant="ghost" size="icon" onClick={() => navigate('/')}>
+            <ArrowLeft className="w-5 h-5" />
+          </Button>
+          <div>
+            <h1 className="text-3xl font-bold">My Bookings</h1>
+            <p className="text-muted-foreground">Manage your event bookings and track progress</p>
+          </div>
         </div>
         <div className="flex gap-2">
           <Button variant="outline">

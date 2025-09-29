@@ -23,8 +23,12 @@ import {
   Check,
   Clock,
   Users,
-  Award
+  Award,
+  ArrowLeft
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import royalDecoratorsImg from "@/assets/royal-decorators.jpg";
+import vendorPortraitImg from "@/assets/vendor-portrait.jpg";
 
 const serviceData = {
   id: 1,
@@ -37,11 +41,11 @@ const serviceData = {
   email: "info@royalpalace.com",
   description: "Royal Palace Decorators brings over 15 years of experience in creating magical moments for your special occasions. We specialize in traditional wedding decorations with a modern twist, ensuring your celebration reflects your cultural heritage while embracing contemporary elegance.",
   images: [
-    "/api/placeholder/600/400",
-    "/api/placeholder/600/400",
-    "/api/placeholder/600/400",
-    "/api/placeholder/600/400",
-    "/api/placeholder/600/400"
+    royalDecoratorsImg,
+    royalDecoratorsImg, 
+    royalDecoratorsImg,
+    royalDecoratorsImg,
+    royalDecoratorsImg
   ],
   packages: [
     {
@@ -69,7 +73,7 @@ const serviceData = {
   availability: ["2024-03-15", "2024-03-20", "2024-03-25", "2024-04-05"],
   vendor: {
     name: "Rajesh Kumar",
-    image: "/api/placeholder/60/60",
+    image: vendorPortraitImg,
     experience: "15+ years",
     specialties: ["Traditional Weddings", "Corporate Events", "Religious Ceremonies"]
   }
@@ -103,6 +107,7 @@ const reviews = [
 ];
 
 export function ServiceDetail() {
+  const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedPackage, setSelectedPackage] = useState(serviceData.packages[1]);
   const [selectedDate, setSelectedDate] = useState<Date>();
@@ -119,6 +124,14 @@ export function ServiceDetail() {
 
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-6">
+      {/* Back Button */}
+      <div className="flex items-center gap-4 mb-6">
+        <Button variant="ghost" size="icon" onClick={() => navigate(-1)}>
+          <ArrowLeft className="w-5 h-5" />
+        </Button>
+        <h1 className="text-2xl font-bold">Service Details</h1>
+      </div>
+
       {/* Main Content */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column - Images and Details */}

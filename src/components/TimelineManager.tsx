@@ -2,7 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Calendar, Clock, CheckCircle, Circle, Download, Settings } from "lucide-react";
+import { Calendar, Clock, CheckCircle, Circle, Download, Settings, ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const timelineData = [
   {
@@ -89,13 +90,20 @@ const timelineData = [
 ];
 
 export function TimelineManager() {
+  const navigate = useNavigate();
+  
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold">Function Timeline Manager</h1>
-          <p className="text-muted-foreground">Manage and track your event planning progress</p>
+        <div className="flex items-center gap-4">
+          <Button variant="ghost" size="icon" onClick={() => navigate('/')}>
+            <ArrowLeft className="w-5 h-5" />
+          </Button>
+          <div>
+            <h1 className="text-3xl font-bold">Function Timeline Manager</h1>
+            <p className="text-muted-foreground">Track and manage your event planning progress</p>
+          </div>
         </div>
         <div className="flex gap-2">
           <Button variant="outline">

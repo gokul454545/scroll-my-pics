@@ -4,7 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Star, MapPin, Calendar, Filter, Search } from "lucide-react";
+import { Star, MapPin, Calendar, Filter, Search, ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import royalDecoratorsImg from "@/assets/royal-decorators.jpg";
+import spiceGardenImg from "@/assets/spice-garden-catering.jpg";
+import crystalVisionImg from "@/assets/crystal-vision-photography.jpg";
+import grandVenuesImg from "@/assets/grand-celebration-venues.jpg";
+import floralDesignsImg from "@/assets/elegant-floral-designs.jpg";
+import heritageMusicImg from "@/assets/heritage-music-group.jpg";
 
 const services = [
   {
@@ -14,7 +21,7 @@ const services = [
     price: "$800 - $2500",
     rating: 4.8,
     reviews: 127,
-    image: "/api/placeholder/300/200",
+    image: royalDecoratorsImg,
     location: "Downtown",
     available: true,
     tags: ["Wedding", "Traditional", "Luxury"],
@@ -27,7 +34,7 @@ const services = [
     price: "$15 - $25 per person",
     rating: 4.6,
     reviews: 89,
-    image: "/api/placeholder/300/200",
+    image: spiceGardenImg,
     location: "City Center",
     available: true,
     tags: ["Traditional Cuisine", "Vegetarian", "Halal"],
@@ -40,7 +47,7 @@ const services = [
     price: "$500 - $1200",
     rating: 4.9,
     reviews: 156,
-    image: "/api/placeholder/300/200",
+    image: crystalVisionImg,
     location: "Uptown",
     available: false,
     tags: ["Wedding", "Portrait", "Traditional"],
@@ -53,7 +60,7 @@ const services = [
     price: "$1200 - $3000",
     rating: 4.7,
     reviews: 94,
-    image: "/api/placeholder/300/200",
+    image: grandVenuesImg,
     location: "Suburbs",
     available: true,
     tags: ["Large Capacity", "Traditional", "Garden"],
@@ -66,7 +73,7 @@ const services = [
     price: "$300 - $800",
     rating: 4.5,
     reviews: 67,
-    image: "/api/placeholder/300/200",
+    image: floralDesignsImg,
     location: "Downtown",
     available: true,
     tags: ["Flowers", "Traditional", "Custom"],
@@ -79,7 +86,7 @@ const services = [
     price: "$400 - $1000",
     rating: 4.8,
     reviews: 112,
-    image: "/api/placeholder/300/200",
+    image: heritageMusicImg,
     location: "City Center",
     available: true,
     tags: ["Traditional Music", "Live Band", "Cultural"],
@@ -92,6 +99,7 @@ const priceRanges = ["All", "Under $500", "$500 - $1000", "$1000 - $2000", "Abov
 const locations = ["All", "Downtown", "City Center", "Uptown", "Suburbs"];
 
 export function ServiceListings() {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedPrice, setSelectedPrice] = useState("All");
@@ -110,9 +118,16 @@ export function ServiceListings() {
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-6">
       {/* Header */}
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold">Service Listings</h1>
-        <p className="text-muted-foreground">Find the perfect vendors for your cultural celebration</p>
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-4">
+          <Button variant="ghost" size="icon" onClick={() => navigate('/')}>
+            <ArrowLeft className="w-5 h-5" />
+          </Button>
+          <div className="text-center space-y-2">
+            <h1 className="text-3xl font-bold">Service Listings</h1>
+            <p className="text-muted-foreground">Find the perfect vendors for your cultural celebration</p>
+          </div>
+        </div>
       </div>
 
       {/* Filters */}

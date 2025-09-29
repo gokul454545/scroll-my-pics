@@ -4,7 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Send, Bot, User, Star, MapPin } from "lucide-react";
+import { Send, Bot, User, Star, MapPin, ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import royalDecoratorsImg from "@/assets/royal-decorators.jpg";
+import spiceGardenImg from "@/assets/spice-garden-catering.jpg";
 
 const quickPrompts = [
   "Start Planning a Wedding",
@@ -29,7 +32,7 @@ const mockServiceRecommendations = [
     service: "Traditional Wedding Decoration",
     price: "$800 - $2500",
     rating: 4.8,
-    image: "/api/placeholder/150/100",
+    image: royalDecoratorsImg,
     location: "Downtown"
   },
   {
@@ -38,12 +41,13 @@ const mockServiceRecommendations = [
     service: "Traditional Cuisine",
     price: "$15 - $25 per person",
     rating: 4.6,
-    image: "/api/placeholder/150/100",
+    image: spiceGardenImg,
     location: "City Center"
   }
 ];
 
 export function ChatInterface() {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState(mockMessages);
   const [newMessage, setNewMessage] = useState("");
   const [showRecommendations, setShowRecommendations] = useState(false);
@@ -84,6 +88,9 @@ export function ChatInterface() {
       {/* Header */}
       <div className="border-b p-4 bg-card">
         <div className="flex items-center gap-3">
+          <Button variant="ghost" size="icon" onClick={() => navigate('/')}>
+            <ArrowLeft className="w-5 h-5" />
+          </Button>
           <Avatar className="w-10 h-10">
             <AvatarFallback className="bg-primary text-primary-foreground">
               <Bot className="w-5 h-5" />
